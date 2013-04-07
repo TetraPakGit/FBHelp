@@ -8,13 +8,11 @@ var cssObj = {
 		  'background-color' : '#D8DFEA',
 		  'color' : '#443E3E',
 		  'width' : '165px',		  
-		  //'border' : '1px solid #443E3E',
 		  'z-index' : '100000',
 		  'position' : 'absolute',
 		  'right' : '10px',
 		  'padding':'10px',
-		  //'opacity' : '0.5',
-  		  'top':'-120px'
+		  'top':'-120px'
 		  
 		}
 
@@ -23,8 +21,7 @@ var cssObj2 = {
 		  'background-image' : 'url("close_button.png")',
 		  'color' : 'black',
 		  'width' : '13px',
-		   'height': '13px',		  
-		  'border' : '1px solid black',
+		  'height': '13px',		  
 		  'z-index' : '100000',
 		  'position' : 'absolute',
   		  'top':'2px',
