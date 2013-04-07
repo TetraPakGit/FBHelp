@@ -1,7 +1,7 @@
 //Opens up a Facebook dialog after a few minutes of surfing.
 
-var triggerTime;
-var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are lisitening.<br/><hr/><a href='http://www.facebook.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a></p></div>");
+var triggerTime = 120000; //I milisekunder startTid i datum
+var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are listening.<br/><hr/><a href='http://www.facebook.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a><a href='http://www.twitter.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/twitter_icon.png' alt='Twitter'/></a></p></div>");
 
 var cssObj = {
 		  'font-family' : 'verdana',
@@ -35,26 +35,46 @@ var cssObj2 = {
 		  
 		}
 
-$().ready(function(){
-	showSocialMessage();
-});
+	$(document).ready(function(){
+		var MyDate = new Date();
+		if(getCookie('timeOnSite')==null)
+		{
+			var timeEntered = MyDate.getTime();
+			setCookie('timeOnSite',timeEntered,1);
+		}
+		var parseTime = parseInt(getCookie('timeOnSite'));
+		//parseTime = Date.parse(parseTime);
+		if( evalTimeOnSite(parseTime, triggerTime) && getCookie('dialogClosed') ==null)
+		{
+			showSocialMessage();
+		}
+	});
+
 function showSocialMessage()
 {
 	//build element
 		$info.css (cssObj);		
 		$('body').prepend($info);
 		$('#closeBtn').css(cssObj2);
-		$('#closeBtn').click(function(){$("#fbdlg").css("display","none");});
+		$('#closeBtn').click(function(){
+			$("#fbdlg").css("display","none");
+			setCookie('dialogClosed');
+		});
 		$('#fbdlg').animate({top: '+=120'},1000);
 
 	//slide element
 }
 
-function closeSocialMessaage()
-{
-	//Delete node by ID
 
-	//Set cookie
+function evalTimeOnSite(time,maxTimePassed)
+{
+	var MyDate2 = new Date();
+	var now = MyDate2.getTime();
+	if (now - time > maxTimePassed) 
+		{
+			return true;
+		};
+		return false;
 }
 
 function setCookie(c_name,value,exdays)
