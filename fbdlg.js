@@ -1,28 +1,29 @@
 //Opens up a Facebook dialog after a few minutes of surfing.
 
 var triggerTime = 120000; //I milisekunder startTid i datum
-var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are listening.<br/><hr/><a href='http://www.facebook.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a><a href='http://www.twitter.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/twitter_icon.png' alt='Twitter'/></a></p></div>");
+var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are listening:<br/>&nbsp;<a href='http://www.facebook.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a>&nbsp;<a href='http://www.twitter.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/twitter_icon.png' alt='Twitter'/></a></p></div>");
 
 var cssObj = {
 		  'font-family' : 'verdana',
 		  'background-color' : '#D8DFEA',
-		  'color' : 'black',
+		  'color' : '#443E3E',
 		  'width' : '165px',		  
-		  'border' : '1px solid black',
+		  //'border' : '1px solid #443E3E',
 		  'z-index' : '100000',
 		  'position' : 'absolute',
 		  'right' : '10px',
 		  'padding':'10px',
-		  'opacity' : '0.5',
+		  //'opacity' : '0.5',
   		  'top':'-120px'
 		  
 		}
 
 var cssObj2 = {
 		  'background-color' : '#fff',
+		  'background-image' : 'url("close_button.png")',
 		  'color' : 'black',
-		  'width' : '8px',
-		   'height': '8px',		  
+		  'width' : '13px',
+		   'height': '13px',		  
 		  'border' : '1px solid black',
 		  'z-index' : '100000',
 		  'position' : 'absolute',
@@ -43,7 +44,6 @@ var cssObj2 = {
 			setCookie('timeOnSite',timeEntered,1);
 		}
 		var parseTime = parseInt(getCookie('timeOnSite'));
-		//parseTime = Date.parse(parseTime);
 		if( evalTimeOnSite(parseTime, triggerTime) && getCookie('dialogClosed') ==null)
 		{
 			showSocialMessage();
@@ -52,7 +52,6 @@ var cssObj2 = {
 
 function showSocialMessage()
 {
-	//build element
 		$info.css (cssObj);		
 		$('body').prepend($info);
 		$('#closeBtn').css(cssObj2);
@@ -60,9 +59,7 @@ function showSocialMessage()
 			$("#fbdlg").css("display","none");
 			setCookie('dialogClosed');
 		});
-		$('#fbdlg').animate({top: '+=120'},1000);
-
-	//slide element
+		$('#fbdlg').animate({top: '+=220'},1000);
 }
 
 
