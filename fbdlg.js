@@ -1,17 +1,17 @@
 //Opens up a Facebook dialog after a few minutes of surfing.
 
 var triggerTime = 120000; //I milisekunder startTid i datum
-var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are listening:<br/>&nbsp;<a href='http://www.facebook.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a>&nbsp;<a href='http://www.twitter.com'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/twitter_icon.png' alt='Twitter'/></a></p></div>");
+var $info = $("<div id='fbdlg'><div id='closeBtn'></div><p>Not finding what you are looking for? <br/><br/>We are listening:<br/>&nbsp;<a href='http://www.facebook.com/tetrapak'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/facebook_icon.png' alt='Facebook'/></a>&nbsp;<a href='http://www.twitter.com/tetrapak'><img src='http://www.tetrapak.com/SiteCollectionImages/social%20buttons/twitter_icon.png' alt='Twitter'/></a></p></div>");
 
 var cssObj = {
 		  'font-family' : 'verdana',
-		  'background-color' : '#D8DFEA',
+		  'background-color' : '#94C6F0',
 		  'color' : '#443E3E',
 		  'width' : '165px',		  
 		  'z-index' : '100000',
 		  'position' : 'absolute',
 		  'right' : '10px',
-		  'padding':'10px',
+		  'padding':'0px 10px',
 		  'top':'-120px'
 		  
 		}
